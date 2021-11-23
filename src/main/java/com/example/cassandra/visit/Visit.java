@@ -1,12 +1,12 @@
 package com.example.cassandra.visit;
 
 import com.example.cassandra.pet.Pet;
-import lombok.Getter;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
-@Getter
+@Builder
 @RequiredArgsConstructor
 public class Visit {
 

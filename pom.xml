@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<lombok.version>1.18.12</lombok.version>
+		<driver.version>4.13.0</driver.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,6 +28,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<!-- The java-driver-mapper-runtime artifact contains the annotations and a few utility classes -->
+		<dependency>
+			<groupId>com.datastax.oss</groupId>
+			<artifactId>java-driver-mapper-runtime</artifactId>
+			<version>${driver.version}</version>
 		</dependency>
 
 		<dependency>
@@ -55,6 +63,25 @@
 				<configuration>
 					<source>11</source>
 					<target>11</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>com.datastax.oss</groupId>
+							<artifactId>java-driver-mapper-processor</artifactId>
+							<version>${driver.version}</version>
+						</path>
+						<!-- Optional: add this if you want to avoid the SLF4J warning "Failed to load class
+                          StaticLoggerBinder, defaulting to no-operation implementation" when compiling. -->
+						<path>
+							<groupId>org.slf4j</groupId>
+							<artifactId>slf4j-nop</artifactId>
+							<version>1.7.26</version>
+						</path>
+					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>

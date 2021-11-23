@@ -3,9 +3,12 @@ package com.example.cassandra.visit;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Slf4j
@@ -19,4 +22,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
         origins = "*"
 )
 public class VisitReactiveController {
+
+    private final VisitReactiveServices visitReactiveServices;
+
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
+    public Flux<Visit> findAllVisits() {
+        return visitReactiveServices.findAllVisits();
+    }
 }
