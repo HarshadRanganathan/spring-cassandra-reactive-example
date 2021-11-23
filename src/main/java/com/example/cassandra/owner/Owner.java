@@ -1,4 +1,4 @@
-package com.example.cassandra.Owner;
+package com.example.cassandra.owner;
 
 import com.example.cassandra.pet.Pet;
 import lombok.Getter;

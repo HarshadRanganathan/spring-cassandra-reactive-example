@@ -1,6 +1,6 @@
 package com.example.cassandra.pet;
 
-import com.example.cassandra.Owner.Owner;
+import com.example.cassandra.owner.Owner;
 import com.example.cassandra.visit.Visit;
 import lombok.Getter;
 import lombok.Setter;
